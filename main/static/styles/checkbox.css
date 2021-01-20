@@ -43,7 +43,7 @@
     }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.checkbox_container input:checked ~ .checkmark:after {
      display: block;
     }
   
