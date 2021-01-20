@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <link rel="stylesheet" href="{% static 'styles/books.css' %}" />
+</head>
+<body>
+    {% for books in books_page %}
+
+    <h1 class="page">{{ books.title }}</h1>
+    <h3 class="page">{{ books.genre }}</h3>
+    <h4 class="page">{{ books.year }}</h4>
+
+
+    {% endfor %}
+</body>
+</html>
