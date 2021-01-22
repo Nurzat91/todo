@@ -5,16 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>book</title>
-    <link rel="stylesheet" href="{% static 'styles/books.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/book.css' %}" />
 </head>
 <body>
-    {% for books in books_page %}
+    <section>
+        <div class="book_container">
+            <form action="{% url 'add-book' %}" method="POST">
+                {% csrf_token %}
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите заголовок"
+                    name="book.title"
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите подзаголовок"
+                    name="book.subtitle"
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите описание"
+                    name="book.description"
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите цену"
+                    name="book.price"
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите жанр"
+                    name="book.genre"
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите автора"
+                    name="book.author" 
+                />
+                <input
+                    class="create_input_book"
+                    type="text"
+                    placeholder="Введите год выхода книги"
+                    name="book.year" 
+                />
+                <button class="create_button_book">Добавить</button>
+            </form>
 
-    <h1 class="page">{{ books.title }}</h1>
-    <h3 class="page">{{ books.genre }}</h3>
-    <h4 class="page">{{ books.year }}</h4>
-
-
-    {% endfor %}
+        </div>
+        <div class="pageBox">
+            {% for books in books_page %}
+            <div class="page_item">
+                <h1 class="page">{{ books.title }}</h1>
+                <p >{{ books.subtitle }}</p>
+                <p >{{ books.description }}</p>
+                <p >{{ books.price }}</p>
+                <p >{{ books.genre }}</p>
+                <p >{{ books.author }}</p>
+                <p >{{ books.year }}</p>
+            </div>
+    
+             {% endfor %}
+        </div>
+    </section>
 </body>
 </html>

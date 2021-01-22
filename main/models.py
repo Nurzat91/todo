@@ -16,6 +16,6 @@ class Books(models.Model):
     price = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    year = models.DateTimeField(auto_created=True)
-    date = models.DateTimeField(auto_now_add=True)
+    year = models.DateField(auto_created=False)
+    # date = models.DateField(auto_now_add=True)
 
