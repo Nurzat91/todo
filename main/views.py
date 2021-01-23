@@ -50,4 +50,29 @@ def delete_todo(request, id):
     todo.delete()
     return redirect(test)  
 
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(test)
 
+def unmark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite  = False
+    todo.save()
+    return redirect(test)
+
+def star_books(request, id):
+    books = Books.objects.get(id=id)
+    books.is_favorite = True
+    books.save()
+    return redirect(tom)
+
+def delete_books(request, id):
+    books = Books.objects.get(id=id)
+    books.delete()
+    return redirect(tom)
+
+def books(request, id):
+    books_object = Books.objects.get(id=id) 
+    return render(request, "books_detail.html", {"books_object": books_object})

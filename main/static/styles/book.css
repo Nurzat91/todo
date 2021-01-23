@@ -1,18 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+.book_container{
+    width: 100%;
+    padding: 20px;
+}
 
 .pageBox{
     padding: 30px 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-  
+    width: 100%;
 }
+
 .page_item{
     border: 1px solid black;
-    width: 25%;
+    width: 24%;
     padding: 10px 15px;
     background-color: rgba(0, 102, 51, 0.068);
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px;   
+}
+.page_item.colors{
+    background-color: orange;
+    border: 2px solid orange;
 }
 
 .page{
@@ -29,4 +41,18 @@ p{
     padding: 5px 5px;
     margin-bottom: 7px;
 
+}
+
+.page_item .icons_books{
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+}
+
+
+.icons_books img{
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
 }

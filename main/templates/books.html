@@ -32,7 +32,7 @@
                 />
                 <input
                     class="create_input_book"
-                    type="text"
+                    type="number"
                     placeholder="Введите цену"
                     name="book.price"
                 />
@@ -60,7 +60,11 @@
         </div>
         <div class="pageBox">
             {% for books in books_page %}
-            <div class="page_item">
+            <div class="page_item
+                {% if books.is_favorite %}
+                    colors
+                {% endif %}
+            ">
                 <h1 class="page">{{ books.title }}</h1>
                 <p >{{ books.subtitle }}</p>
                 <p >{{ books.description }}</p>
@@ -68,6 +72,13 @@
                 <p >{{ books.genre }}</p>
                 <p >{{ books.author }}</p>
                 <p >{{ books.year }}</p>
+                <div class="icons_books">
+                    
+                    <a href="{% url 'star-books' books.id %}"><img src="{% static './icons/star.png' %}" /></a>
+                    
+                    <a href="{% url 'delete-books' books.id %}"><img src="{% static './icons/basket.png' %}" /></a>
+                    <a href="{% url 'books' books.id %}">***</a>
+                </div>
             </div>
     
              {% endfor %}
